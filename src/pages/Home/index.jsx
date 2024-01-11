@@ -1,4 +1,9 @@
+import FetchProducts from "../../components/FetchProducts/indes";
 
 export default function Home() {
-    return <h1>This is our home page</h1>;
-  }
+  return (
+    <>
+      <FetchProducts />{" "}
+    </>
+  );
+}
