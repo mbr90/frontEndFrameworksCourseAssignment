@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const url = "https://api.noroff.dev/api/v1/online-shop";
 
@@ -69,22 +70,25 @@ function FetchProducts() {
       </div>
       <ul className="flex flex-wrap w-full">
         {searchValue.map((post) => (
-          <li
-            className="m-8 p-2 w-full max-w-[48%] mx-auto  bg-slate-500 "
+          <Link
+            className="m-8 p-2 w-full max-w-[48%] mx-auto  bg-slate-500"
             key={post.id}
+            to={`/product/${post.id}`}
           >
-            <h2 className="text-white font-bold ">{post.title}</h2>
-            <img
-              className="w-40 h-40 my-2"
-              src={post.imageUrl}
-              alt={post.description}
-            />
-            <p className="text-white ">{post.description}</p>
-            <p className="text-white">{post.price}$</p>
-            <p className="text-white">
-              Discounted Price:{post.discountedPrice}$
-            </p>
-          </li>
+            <li>
+              <h2 className="text-white font-bold ">{post.title}</h2>
+              <img
+                className="w-40 h-40 my-2"
+                src={post.imageUrl}
+                alt={post.description}
+              />
+              <p className="text-white ">{post.description}</p>
+              <p className="text-white">{post.price}$</p>
+              <p className="text-white">
+                Discounted Price:{post.discountedPrice}$
+              </p>
+            </li>
+          </Link>
         ))}
       </ul>{" "}
     </div>

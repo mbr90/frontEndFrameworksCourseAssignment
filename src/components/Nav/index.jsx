@@ -1,15 +1,11 @@
-import { Link } from "react-router-dom"
-
+import { Link, NavLink } from "react-router-dom";
 
 export default function Nav() {
-    return(
-      <nav>
-        <ul className="px-10 text-white flex w-full justify-between">
-          <li>
-          <Link to="/">Home</Link>
-        </li>
+  return (
+    <nav>
+      <ul className="px-10 text-white flex w-full justify-between">
         <li>
-          <Link to="/product">Product</Link>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
           <Link to="/cart">Shopping Cart</Link>
@@ -20,6 +16,7 @@ export default function Nav() {
         <li>
           <Link to="/contact">Contact</Link>
         </li>
-        </ul></nav>
-    )
-  }
+      </ul>
+    </nav>
+  );
+}
