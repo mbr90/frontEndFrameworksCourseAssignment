@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useCart } from "../../context/CartContext";
 
 const url = "https://api.noroff.dev/api/v1/online-shop";
 
@@ -8,6 +9,8 @@ export default function FetchSingleProduct(props) {
   const [isLoading, setIsLoading] = useState(false);
 
   const [isError, setIsError] = useState(false);
+
+  const { dispatch } = useCart();
 
   useEffect(() => {
     async function getData() {
@@ -50,6 +53,9 @@ export default function FetchSingleProduct(props) {
         <p>{item.price}</p>
         <p>Discounted Price:{item.discountedPrice}</p>
         <p>Rating: {item.rating}</p>
+        <button onClick={() => dispatch({ type: "addProduct", payload: item })}>
+          Buy!
+        </button>
       </div>
     </>
   );

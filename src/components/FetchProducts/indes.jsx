@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 
 const url = "https://api.noroff.dev/api/v1/online-shop";
 
@@ -11,6 +12,8 @@ function FetchProducts() {
   const [isError, setIsError] = useState(false);
 
   const [searchValue, setSearchValue] = useState(posts);
+
+  const { dispatch } = useCart();
 
   const Filter = (event) => {
     setSearchValue(
@@ -70,25 +73,31 @@ function FetchProducts() {
       </div>
       <ul className="flex flex-wrap w-full">
         {searchValue.map((post) => (
-          <Link
+          <div
             className="m-8 p-2 w-full max-w-[48%] mx-auto  bg-slate-500"
             key={post.id}
-            to={`/product/${post.id}`}
           >
             <li>
               <h2 className="text-white font-bold ">{post.title}</h2>
-              <img
-                className="w-40 h-40 my-2"
-                src={post.imageUrl}
-                alt={post.description}
-              />
+              <Link key={post.id} to={`/product/${post.id}`}>
+                <img
+                  className="w-40 h-40 my-2"
+                  src={post.imageUrl}
+                  alt={post.description}
+                />{" "}
+              </Link>
               <p className="text-white ">{post.description}</p>
               <p className="text-white">{post.price}$</p>
               <p className="text-white">
                 Discounted Price:{post.discountedPrice}$
               </p>
+              <button
+                onClick={() => dispatch({ type: "addProduct", payload: post })}
+              >
+                Add {post.title}
+              </button>
             </li>
-          </Link>
+          </div>
         ))}
       </ul>{" "}
     </div>

@@ -1,4 +1,5 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { NumberOfItems } from "../../utils/NumberOfItems";
 
 export default function Nav() {
   return (
@@ -7,14 +8,18 @@ export default function Nav() {
         <li>
           <NavLink to="/">Home</NavLink>
         </li>
-        <li>
-          <Link to="/cart">Shopping Cart</Link>
+        <li className="flex">
+          <NavLink className="mr-2" to="/cart">
+            Shopping Cart
+          </NavLink>
+
+          <NumberOfItems />
         </li>
         <li>
-          <Link to="/checkout">Checkout</Link>
+          <NavLink to="/checkout">Checkout</NavLink>
         </li>
         <li>
-          <Link to="/contact">Contact</Link>
+          <NavLink to="/contact">Contact</NavLink>
         </li>
       </ul>
     </nav>
