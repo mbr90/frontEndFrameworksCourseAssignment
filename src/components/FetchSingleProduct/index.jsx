@@ -94,7 +94,7 @@ export default function FetchSingleProduct(props) {
       </div>
 
       {item.reviews && item.reviews.length > 0 && (
-        <div className="bg-sky-900 w-full max-w-[800px] mx-auto text-white shadow-xl mt-10 p-4 flex flex-col gap-3">
+        <div className="bg-sky-900 w-full max-w-[800px] mx-auto text-white shadow-xl my-10 p-4 flex flex-col gap-3">
           <h1 className="text-xl">User Reviews:</h1>
           <ul className="flex flex-col gap-2">
             {item.reviews.map((review) => (
