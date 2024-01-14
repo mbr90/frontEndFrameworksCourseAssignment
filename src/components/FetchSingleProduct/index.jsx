@@ -52,6 +52,7 @@ export default function FetchSingleProduct(props) {
             src={item.imageUrl}
             alt={item.description}
           />
+          <p>{item.description}</p>
           {item.discountedPrice != item.price ? (
             <p className="text-white">
               Discount Price:{" "}
