@@ -6,8 +6,9 @@ function Product() {
 
   return (
     <>
-      <div>This is our individual product page: {params.id}</div>
-      <FetchSingleProduct postID={params.id} />
+      <main className="min-h-screen bg-sky-50 pt-20">
+        <FetchSingleProduct postID={params.id} />
+      </main>
     </>
   );
 }

@@ -1,3 +1,7 @@
 export default function RouteNotFound() {
-    return <div>Page not found</div>;
-  }
+  return (
+    <main className="min-h-screen bg-sky-50 pt-20">
+      <div>Page not found</div>
+    </main>
+  );
+}

@@ -7,8 +7,6 @@ export function useCart() {
 }
 
 export function CartProvider({ children }) {
-  // const [cart, updateCart] = useState([]);
-
   const initialState = { cart: [], total: 0 };
   const [state, dispatch] = useReducer(reducer, initialState);
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "../../context/CartContext";
+import { formatCurrency } from "../../utils/formatCurrency";
 
 const url = "https://api.noroff.dev/api/v1/online-shop";
 
@@ -12,8 +12,6 @@ function FetchProducts() {
   const [isError, setIsError] = useState(false);
 
   const [searchValue, setSearchValue] = useState(posts);
-
-  const { dispatch } = useCart();
 
   const Filter = (event) => {
     setSearchValue(
@@ -62,7 +60,7 @@ function FetchProducts() {
   }
 
   return (
-    <div className="flex-col p-5 mx-auto w-full">
+    <div className="flex-col p-5 mx-auto w-full max-w-[1400px]">
       <div className="w-full flex justify-center">
         <input
           type="text"
@@ -74,28 +72,50 @@ function FetchProducts() {
       <ul className="flex flex-wrap w-full">
         {searchValue.map((post) => (
           <div
-            className="m-8 p-2 w-full max-w-[48%] mx-auto  bg-slate-500"
+            className="m-8 w-full max-w-[400px] mx-auto  bg-sky-900 shadow-xl relative"
             key={post.id}
           >
             <li>
-              <h2 className="text-white font-bold ">{post.title}</h2>
-              <Link key={post.id} to={`/product/${post.id}`}>
+              <Link to={`/product/${post.id}`}>
                 <img
-                  className="w-40 h-40 my-2"
+                  className="w-full h-40 object-cover"
                   src={post.imageUrl}
                   alt={post.description}
                 />{" "}
               </Link>
-              <p className="text-white ">{post.description}</p>
-              <p className="text-white">{post.price}$</p>
-              <p className="text-white">
-                Discounted Price:{post.discountedPrice}$
-              </p>
-              <button
-                onClick={() => dispatch({ type: "addProduct", payload: post })}
+              <div className="p-4 flex flex-col mb-10">
+                <div className="h-40">
+                  <h2 className="text-white font-bold ">{post.title}</h2>
+                  <p className="text-white ">{post.description}</p>
+                </div>
+                <div className="my-2 flex w-full mb-6 absolute bottom-16">
+                  {post.discountedPrice != post.price ? (
+                    <p className="text-white">
+                      Discount Price:{" "}
+                      <span className="font-bold">
+                        {formatCurrency(post.discountedPrice)}
+                      </span>{" "}
+                      Save:{" "}
+                      <span className="font-bold">
+                        {formatCurrency(post.price - post.discountedPrice)}{" "}
+                      </span>
+                    </p>
+                  ) : (
+                    <p className="text-white">
+                      Price:{" "}
+                      <span className="font-bold">
+                        {formatCurrency(post.price)}
+                      </span>
+                    </p>
+                  )}
+                </div>
+              </div>
+              <Link
+                className="hover:border-solid hover:border-2 text-white hover:border-white absolute bottom-4 right-4 bg-[#DA9F53] p-2 font-bold"
+                to={`/product/${post.id}`}
               >
-                Add {post.title}
-              </button>
+                See product
+              </Link>
             </li>
           </div>
         ))}
