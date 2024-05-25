@@ -1,6 +1,6 @@
 # The Store
 
-![image](https://user-images.githubusercontent.com/52622303/164316813-4b12d99f-aeb7-4069-85cf-e72b3a50ac99.png)
+![image](https://github.com/mbr90/frontEndFrameworksCourseAssignment/blob/master/theStore.jpg?raw=true)
 
 A simple overview of the use/purpose of the project.
 
