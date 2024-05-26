@@ -2,35 +2,34 @@
 
 ![image](https://github.com/mbr90/frontEndFrameworksCourseAssignment/blob/master/theStore.jpg?raw=true)
 
-A simple overview of the use/purpose of the project.
 
 ## Description
 
-Add a more detailed description of what your project entails and set out to do.
+This is the course assignment for the front-end frameworks course at Noroff. 
+The task was to build an eCommerce store with the following requirements:
 
-You can add some bullet points if you'd like to:
 
-- List item 1
-- List item 2
-- List item 3
+
+- The Homepage should have a list of all the products.  
+- There should be a look-ahead search bar that filters products when typing in a product name.
+- Clicking on a product should take a user to an individual product page.
+- There will be a contact page which will contain a contact form 
+- Your design should be responsive.
 
 ## Built With
 
-You can list a the tech stack that you've used over here
-
-- [React.js](https://reactjs.org/)
-- [Bootstrap](https://getbootstrap.com)
+- [Vite.js](https://vitejs.dev/)
+- [Tailwind](https://tailwindcss.com/)
 
 ## Getting Started
 
 ### Installing
 
-This is where you list how to get the project started. It typically just includes telling a person to clone the repo and then to install the dependencies e.g.
 
 1. Clone the repo:
 
 ```bash
-git clone git@github.com:NoroffFEU/portfolio-1-example.git
+git clone https://github.com/mbr90/frontEndFrameworksCourseAssignment
 ```
 
 2. Install the dependencies:
@@ -41,17 +40,15 @@ npm install
 
 ### Running
 
-Here is where you detail how to run the app. It typically involves the commands you'd need to run to start the project e.g.
-
 To run the app, run the following commands:
 
 ```bash
-npm run start
+npm run dev
 ```
 
 ## Contributing
 
-Here you can detail any information you want to provide regarding contributing to the project. For big projects you will usually have a separate `CONTRIBUTING.md` and link to it, but for smaller projects you can simply include instructions here. These instructions can simply detail the process you want a person to take, such as to make sure to open a pull request so code can be reviewed.
+Feel free to use this code as you like, and if for some reason you'd like to contribute just open a pull request
 
 
 
